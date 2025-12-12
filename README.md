@@ -1,13 +1,13 @@
-# FastAPI Adder
+# FastAPI Calculator
 
-A simple FastAPI application to add two numbers.
+A simple FastAPI application to add and multiply two numbers.
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Running Tests](#running-tests)
-- [API Endpoint](#api-endpoint)
+- [API Endpoints](#api-endpoints)
 
 ## Installation
 
@@ -24,9 +24,13 @@ A simple FastAPI application to add two numbers.
 
 ## Usage
 
-1. Start the FastAPI application:
+1. Start the FastAPI application for addition:
    ```bash
    uvicorn add:app --reload
+   ```
+   Or for multiplication:
+   ```bash
+   uvicorn multiply:app --reload
    ```
 
 2. The application will be running at `http://127.0.0.1:8000`.
@@ -38,11 +42,30 @@ To run the tests, use the following command:
 pytest
 ```
 
-## API Endpoint
+## API Endpoints
 
 ### POST /add
 
 This endpoint adds two numbers together.
+
+**Request Body:**
+```json
+{
+  "a": integer,
+  "b": integer
+}
+```
+
+**Response:**
+```json
+{
+  "result": integer
+}
+```
+
+### POST /multiply
+
+This endpoint multiplies two numbers together.
 
 **Request Body:**
 ```json
